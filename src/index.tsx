@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from 'pages/app/App';
 import * as serviceWorker from './serviceWorker';
+
+import { RepositoryProvider, repository } from './injector';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RepositoryProvider value={repository}>
+      <App />
+    </RepositoryProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

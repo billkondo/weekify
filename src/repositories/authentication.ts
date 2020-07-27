@@ -1,21 +1,36 @@
 export interface AuthenticationRepository {
+  authenticationStatus: AuthenticationStatus;
+
   /**
-   * Returns the ID of logged user. Returns null if no user is logged.
+   *  Returns the ID of logged user. Returns null if no user is logged.
    */
   userID: () => String | null;
 
-  /**
-   * Creates user using email and password
-   */
-  createUserEmailPassword: (email: String, password: String) => void;
+  createUserEmailPassword: (email: String, password: String) => Promise<void>;
+
+  signInEmailPassword: (
+    email: String,
+    password: String
+  ) => Promise<String | null>;
 
   /**
-   * Sign in user using email and password
+   *  Sign out logged user
    */
-  signInEmailPassword: (email: String, password: String) => String | null;
+  logout: () => Promise<void>;
 
   /**
-   * Sign out logged user
+   *  Subscribe to changes in [authenticationStatus]
    */
-  logout: () => void;
+  subscribeStatus: (fn: Function) => void;
+
+  /**
+   *  Unsubscribe to changes in [authenticationStatus]
+   */
+  unsubscribe: (fn: Function) => void;
+}
+
+export enum AuthenticationStatus {
+  Unauthenticated,
+  Authenticating,
+  Authenticated,
 }
