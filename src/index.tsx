@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from 'pages/app/App';
 import * as serviceWorker from './serviceWorker';
+import { CssBaseline } from '@material-ui/core';
 
 import { RepositoryProvider, repository } from './injector';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RepositoryProvider value={repository}>
-      <App />
-    </RepositoryProvider>
+    <CssBaseline>
+      <RepositoryProvider value={repository}>
+        <App />
+      </RepositoryProvider>
+    </CssBaseline>
   </React.StrictMode>,
   document.getElementById('root')
 );
