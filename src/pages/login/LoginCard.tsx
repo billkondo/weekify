@@ -5,6 +5,8 @@ import { EmailOutlined, Email, LockOutlined, Lock } from '@material-ui/icons';
 import Title from 'components/typography/Title';
 import LoginTextfield from './LoginTextfield';
 import LoginButton from './LoginButton';
+import LoginForgotPasswordButton from './LoginForgotPasswordButton';
+import LoginCreateAccountButton from './LoginCreateAccountButton';
 import { APP_NAME } from 'config/common';
 
 const LoginCard = () => {
@@ -12,7 +14,7 @@ const LoginCard = () => {
   const [password, setPassword] = useState('');
 
   return (
-    <Paper elevation={2} style={{ padding: 32 }}>
+    <Paper elevation={2} style={{ padding: 32, paddingBottom: 8 }}>
       <Grid container direction="column" alignItems="center">
         <Grid item>
           <Title text={APP_NAME}></Title>
@@ -20,7 +22,7 @@ const LoginCard = () => {
 
         <div style={{ margin: 24 }}></div>
 
-        <Grid item container lg={4} md={6} sm={8} xs={12}>
+        <Grid item container xs={12}>
           <LoginTextfield
             placeholder="Email"
             unfocusedIcon={
@@ -36,9 +38,9 @@ const LoginCard = () => {
           ></LoginTextfield>
         </Grid>
 
-        <div style={{ margin: 16 }}></div>
+        <div style={{ margin: 8 }}></div>
 
-        <Grid item container lg={4} md={6} sm={8} xs={12}>
+        <Grid item container xs={12}>
           <LoginTextfield
             placeholder="Password"
             unfocusedIcon={
@@ -56,8 +58,20 @@ const LoginCard = () => {
 
         <div style={{ margin: 32 }}></div>
 
-        <Grid item container lg={4} md={6} sm={8} xs={12}>
+        <Grid item container xs={12}>
           <LoginButton></LoginButton>
+        </Grid>
+
+        <div style={{ margin: 8 }}></div>
+
+        <Grid item container xs={12} justify="flex-end">
+          <LoginForgotPasswordButton></LoginForgotPasswordButton>
+        </Grid>
+
+        <div style={{ margin: 32 }}></div>
+
+        <Grid item container xs={12} justify="center">
+          <LoginCreateAccountButton></LoginCreateAccountButton>
         </Grid>
       </Grid>
     </Paper>

@@ -18,6 +18,7 @@ const LoginButton: React.FC<Props> = ({ borderRadius = 32 }) => {
         color: Pallete.white,
         borderRadius: borderRadius,
         padding: 12,
+        fontSize: 16,
       }}
     >
       Login
